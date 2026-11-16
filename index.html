@@ -128,7 +128,9 @@ main{padding:23px 3vw 45px;min-width:0}.welcome{display:flex;justify-content:spa
 </div>
 <script>
 const titles={home:['أهلًا بكِ أيتها البطلة!','بوابة عالم الأرقام تنتظركِ. هل أنتِ مستعدة للمغامرة؟'],slides:['المشاهد السينمائية','شاهدي القصة، ثم انتقلي إلى بوابة اللغز.'],table:['مختبر أسرار جدول ٦','اكتشفي حقائق الضرب من خلال المجموعات المتساوية.'],game:['غرفة الألغاز','افتحي الأقفال بإجاباتكِ الصحيحة واجمعي المفاتيح.'],certificate:['كنز الإنجاز','احتفلي بإتمام المهمة وحصولكِ على لقب البطلة.']};
-function showPanel(id){document.querySelectorAll('.panel')<div class="section-head">
+
+function showPanel(id){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');}
+
 const ar=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
 function enterPuzzle(){showPanel('game');document.querySelector('#game .challenge').animate([{transform:'scale(.94)',opacity:.5},{transform:'scale(1)',opacity:1}],{duration:700,easing:'ease-out'});}
 const facts=document.getElementById('facts');for(let i=1;i<=12;i++){let d=document.createElement('button');d.className='fact';d.innerHTML=`<strong>٦ × ${ar(i)} = ${ar(6*i)}</strong><span>اضغطي لاكتشاف الجمع المتكرر</span>`;d.onclick=()=>{d.querySelector('span').textContent=`${ar(Array.from({length:i},()=>6).join(' + '))} = ${ar(6*i)}`};facts.appendChild(d)}
