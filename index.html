@@ -77,6 +77,21 @@ main{padding:23px 3vw 45px;min-width:0}.welcome{display:flex;justify-content:spa
    <div class="crystal c1"></div><div class="crystal c2"></div><div class="ground"></div>
    <div class="hero-copy"><div class="eyebrow">فيلم تفاعلي • المهمة الأولى تبدأ الآن</div><h2>سرّ البوابة<br>السحرية للعدد ٦</h2><p>في مملكة الأرقام، أُغلقت بوابة الكنز واختفت مفاتيحها! انطلقي في رحلة بين الكواكب، واجتازي المشاهد والألغاز لتعيدي النور إلى المملكة.</p><div class="cta"><button class="primary" onclick="showPanel('slides')">🎬 شاهدي بداية القصة</button><button class="secondary" onclick="enterPuzzle()">🗝️ ادخلي إلى اللغز</button></div></div>
   </div>
+  
+</div>
+
+<div class="cinema-video" style="margin:18px auto;max-width:100%;border-radius:20px;overflow:hidden;">
+  <video autoplay muted loop playsinline preload="auto" style="display:block;width:100%;aspect-ratio:16/9;object-fit:cover;">
+
+<div class="cinema-video" style="margin:18px auto;max-width:100%;border-radius:20px;overflow:hidden">
+  <video autoplay muted loop playsinline preload="auto"
+    style="display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#030716">
+    <source src="https://resource2.heygen.ai/videos/29865a140e25497baa5b95bfd6b12fb8/29865a140e25497baa5b95bfd6b12fb8/01a1e518-6805-7888-a452-ca4b2571e09f.mp4" type="video/mp4">
+  </video>
+</div>
+  </video>
+</div>
+</div>
   <div class="metrics"><div class="metric"><div class="micon">🌟</div><div><strong>٦ × ١٢</strong><small>حقيقة ضرب لاكتشافها</small></div></div><div class="metric"><div class="micon">🧩</div><div><strong>١٠</strong><small>ألغاز في غرفة التحدي</small></div></div><div class="metric"><div class="micon">🏅</div><div><strong id="homeScore">٠</strong><small>نقاطكِ ومفاتيحكِ</small></div></div></div>
   <div class="section-head"><h3>محطات الرحلة</h3><span class="muted">اختاري بوابتكِ التالية</span></div>
   <div class="cards">
@@ -85,29 +100,18 @@ main{padding:23px 3vw 45px;min-width:0}.welcome{display:flex;justify-content:spa
    <div class="card"><div class="emoji">🗝️</div><h3>غرفة الألغاز</h3><p>اختبري ذكاءكِ وافتحي أقفال الكنز بإجاباتكِ.</p><button onclick="enterPuzzle()">دخول الغرفة</button></div>
   </div>
  </section>
-
  <section class="panel" id="slides">
- 
-<div class="cinema-video" style="margin:12px 0 18px">
-  <video controls playsinline preload="metadata"
-    style="width:100%;aspect-ratio:16/9;object-fit:contain;background:#030716;border-radius:18px">
-    <source src="https://resource2.heygen.ai/videos/29865a140e25497baa5b95bfd6b12fb8/29865a140e25497baa5b95bfd6b12fb8/01a1e518-6805-7888-a452-ca4b2571e09f.mp4" type="video/mp4">
-  </video>
-</div>
-
  <div class="scene-shell"><div class="scene" id="slideCanvas"></div>
    <div class="scene-controls"><button onclick="prevSlide()">→ المشهد السابق</button><div class="dots" id="dots"></div><span id="slideCount">١ / ٦</span><button onclick="nextSlide()">المشهد التالي ←</button></div>
   </div>
   <div class="toolrow"><button onclick="showPanel('table')">🔮 الانتقال إلى مختبر العدد ٦</button><button class="enter-puzzle" onclick="enterPuzzle()">🗝️ عبور البوابة إلى اللغز</button><button onclick="toggleFull()">⛶ عرض سينمائي كامل الشاشة</button></div>
  </section>
-
  <section class="panel" id="table">
   <div class="section-head"><h3>🔮 مختبر أسرار جدول ضرب العدد ٦</h3><span class="muted">اضغطي على البطاقة لاكتشاف الجمع المتكرر</span></div>
   <div class="table-grid" id="facts"></div>
   <div class="card" style="margin-top:15px"><h3>🧠 شفرة العالِمة الصغيرة</h3><p>٦ × ٣ تعني ثلاث مجموعات متساوية، في كل مجموعة ٦ عناصر: ٦ + ٦ + ٦ = ١٨. كلما أضفنا مجموعة جديدة زاد الناتج بمقدار ٦.</p></div>
   <div class="toolrow"><button class="enter-puzzle" onclick="enterPuzzle()">🗝️ فهمت السر! إلى غرفة الألغاز</button></div>
  </section>
-
  <section class="panel" id="game">
   <div class="challenge">
    <div class="section-head"><h3>🗝️ غرفة الألغاز: افتحي صندوق الكنز</h3><span class="pill" id="qProgress">اللغز ١ من ١٠</span></div>
