@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مغامرة أبطال جدول الضرب ٦</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap');
+:root{--gold:#ffd66b;--violet:#8d72ff;--cyan:#66e8ff;--pink:#ff8fc8;--navy:#070b25;--ink:#f7f4ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#070b25;color:var(--ink);font-family:'Cairo',Tahoma,sans-serif;overflow-x:hidden}
+button,input{font:inherit}button{cursor:pointer;border:0}
+.top{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 4vw;background:#080d2aeb;backdrop-filter:blur(14px);border-bottom:1px solid #ffffff20}
+.brand{display:flex;align-items:center;gap:12px}.logo{width:45px;height:45px;border-radius:15px;display:grid;place-items:center;font-size:27px;color:#241644;background:linear-gradient(135deg,#fff0a6,#ff9cbe);box-shadow:0 0 25px #ffbd6b77}.brand h1{font-size:16px;margin:0;font-weight:900}.brand p{font-size:10px;color:#bfc4ef;margin:0}
+.top-actions{display:flex;gap:7px;flex-wrap:wrap}.top-actions button{background:#ffffff16;color:white;border:1px solid #ffffff35;padding:8px 12px;border-radius:12px;font-weight:800;font-size:12px}
+.layout{display:grid;grid-template-columns:235px 1fr;max-width:1500px;margin:auto;min-height:calc(100vh - 70px)}
+.sidebar{padding:20px 14px;background:#0b1234;border-left:1px solid #ffffff17}.side-title{font-size:11px;color:#8f9acb;margin:7px 12px 12px;font-weight:900}.nav{display:grid;gap:7px}.nav button{text-align:right;color:#c9ccef;background:transparent;padding:12px;border-radius:13px;font-weight:800;display:flex;align-items:center;gap:10px}.nav button.active,.nav button:hover{background:linear-gradient(100deg,#6d55d744,#b65bb533);color:#fff;box-shadow:inset -3px 0 var(--gold)}.ico{font-size:20px;width:27px;text-align:center}.side-note{margin-top:22px;padding:14px;border-radius:17px;background:linear-gradient(145deg,#473b83,#172b58);border:1px solid #ffffff24;font-size:12px;line-height:1.9;color:#e2e4ff}
+main{padding:23px 3vw 45px;min-width:0}.welcome{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:15px;flex-wrap:wrap}.welcome h2{font-size:23px;margin:0;font-weight:900}.welcome p{font-size:12px;color:#aeb8e5;margin:3px 0}.pill{border:1px solid #ffffff2a;background:#ffffff12;border-radius:30px;padding:7px 13px;font-size:11px;color:#ffe6a0;font-weight:900}
+.panel{display:none}.panel.active{display:block;animation:panelIn .65s ease both}@keyframes panelIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+/* Cinematic opening */
+.cinema{position:relative;min-height:540px;border-radius:27px;overflow:hidden;isolation:isolate;background:radial-gradient(ellipse at 50% 62%,#4d3d9c 0,#211c5d 34%,#0b1439 70%,#060a20 100%);box-shadow:0 25px 70px #0009;border:1px solid #ffffff25}
+.stars,.stars:before,.stars:after{position:absolute;inset:0;content:"";pointer-events:none;background-image:radial-gradient(2px 2px at 10% 20%,#fff 98%,transparent),radial-gradient(1px 1px at 30% 65%,#fff 98%,transparent),radial-gradient(2px 2px at 75% 18%,#ffe9a6 98%,transparent),radial-gradient(1px 1px at 88% 54%,#fff 98%,transparent),radial-gradient(2px 2px at 54% 35%,#fff 98%,transparent),radial-gradient(1px 1px at 66% 82%,#fff 98%,transparent);background-size:390px 290px;animation:twinkle 5s linear infinite}
+.stars:before{transform:translateY(-30px) scale(1.3);opacity:.45;animation:drift 18s linear infinite}.stars:after{transform:translateY(30px) scale(.8);opacity:.55}
+@keyframes twinkle{50%{opacity:.45}}@keyframes drift{to{transform:translateY(40px) scale(1.3)}}
+.moon{position:absolute;left:9%;top:10%;width:115px;height:115px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff8d5,#c8b8ff 35%,#6f62c7 70%,#29265f);box-shadow:0 0 45px #b5a4ff99, inset -15px -12px 20px #282257;animation:float 6s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-14px)}}
+.portal{position:absolute;left:50%;bottom:42px;transform:translateX(-50%);width:min(48%,390px);height:360px;filter:drop-shadow(0 0 25px #8c7affaa);animation:portalGlow 3s ease-in-out infinite}
+@keyframes portalGlow{50%{filter:drop-shadow(0 0 42px #6beaffcc)}}
+.portal-ring{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:80%;height:100%;border:13px solid #b8a5ff;border-bottom:0;border-radius:190px 190px 0 0;background:linear-gradient(180deg,#7c5dff66,#20d8ff25 60%,#060b2a);box-shadow:inset 0 0 35px #66dfff88,0 0 0 8px #43388a,0 0 50px #7f6bff}
+.portal-inner{position:absolute;inset:28px 28px 0;border-radius:160px 160px 0 0;background:radial-gradient(ellipse at 50% 30%,#f5d5ff 0,#a46cff 18%,#2b6eb5 52%,#091638 85%);overflow:hidden}
+.portal-inner:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(110deg,transparent 0 24px,#ffffff26 25px 27px,transparent 28px 52px);animation:warp 4s linear infinite}
+@keyframes warp{to{background-position:0 180px}}
+.portal-number{position:absolute;top:25%;left:50%;transform:translateX(-50%);font-size:130px;font-weight:900;color:#fff1a8;text-shadow:0 5px 0 #d88e3a,0 0 32px #fff;animation:float 3s ease-in-out infinite}
+.ground{position:absolute;bottom:-90px;left:-10%;width:120%;height:190px;background:radial-gradient(ellipse,#4c428b,#151b4d 55%,#080d2a 72%);border-radius:50%;box-shadow:0 -15px 50px #6d5bff44}
+.crystal{position:absolute;bottom:60px;width:45px;height:75px;background:linear-gradient(130deg,#d7fcff,#6dcbff 40%,#7053c8);clip-path:polygon(50% 0,100% 32%,75% 100%,25% 100%,0 32%);filter:drop-shadow(0 0 15px #75eaff);animation:float 4s ease-in-out infinite}.c1{left:12%}.c2{right:12%;animation-delay:1s;transform:scale(.7)}
+.hero-copy{position:relative;z-index:3;padding:44px 5%;max-width:570px}.eyebrow{color:#ffe69c;font-size:12px;font-weight:900;letter-spacing:.5px}.hero-copy h2{font-size:clamp(34px,5vw,58px);line-height:1.25;margin:12px 0;color:#fff;text-shadow:0 5px 25px #080a35}.hero-copy p{color:#d8dcff;line-height:2;font-size:14px;max-width:490px}.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.primary{background:linear-gradient(110deg,#ffe28a,#ff9fbd);color:#30204d;padding:13px 21px;border-radius:14px;font-weight:900;box-shadow:0 8px 25px #ffb66b55}.secondary{background:#ffffff16;color:#fff;border:1px solid #ffffff4d;padding:12px 17px;border-radius:14px;font-weight:800}
+.floating-gem{position:absolute;z-index:2;font-size:30px;animation:float 4s ease-in-out infinite}.g1{right:13%;top:20%}.g2{right:45%;top:13%;animation-delay:1s}.g3{left:34%;bottom:24%;animation-delay:2s}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}.metric{background:linear-gradient(145deg,#151e4a,#0d1436);border:1px solid #ffffff1b;border-radius:16px;padding:14px;display:flex;align-items:center;gap:12px}.micon{width:42px;height:42px;border-radius:13px;background:#ffffff13;display:grid;place-items:center;font-size:21px}.metric strong{display:block;font-size:20px;color:#ffe49c}.metric small{font-size:11px;color:#aeb8e5}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin:21px 0 12px}.section-head h3{margin:0;font-size:17px}.muted{color:#aeb8e5;font-size:11px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{position:relative;overflow:hidden;background:linear-gradient(145deg,#17204c,#101735);border:1px solid #ffffff1b;border-radius:18px;padding:17px;box-shadow:0 8px 25px #0003}.card:before{content:"";position:absolute;width:120px;height:120px;border-radius:50%;background:#8a6dff16;left:-35px;top:-50px}.card .emoji{font-size:30px}.card h3{margin:7px 0 4px;font-size:15px}.card p{margin:0;color:#b8c0e6;font-size:11px;line-height:1.9}.card button{margin-top:12px;background:#7965e8;color:#fff;padding:8px 13px;border-radius:10px;font-size:11px;font-weight:900}
+.scene-shell{border-radius:23px;padding:10px;background:linear-gradient(135deg,#29255e,#111a3e);border:1px solid #ffffff26;box-shadow:0 18px 50px #0007}.scene{position:relative;min-height:500px;border-radius:17px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;background:radial-gradient(ellipse at 50% 35%,#5a4ca5,#211d5c 55%,#091431 100%);isolation:isolate}.scene:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 20%,#fff 0 1px,transparent 2px),radial-gradient(circle at 82% 28%,#fff 0 1px,transparent 2px),radial-gradient(circle at 67% 80%,#ffe9a8 0 2px,transparent 3px);background-size:160px 130px;opacity:.8}
+.scene-content{position:relative;z-index:2;max-width:760px}.scene-visual{font-size:100px;filter:drop-shadow(0 12px 18px #050923);animation:float 3s ease-in-out infinite}.scene-tag{color:#ffe39a;font-size:12px;font-weight:900}.scene h2{font-size:clamp(27px,4vw,43px);margin:9px 0;color:white;text-shadow:0 4px 18px #0008}.scene p{color:#e1e4ff;line-height:2;max-width:650px;margin:8px auto}.equation{display:inline-block;font-size:clamp(30px,5vw,55px);font-weight:900;color:#fff0a7;background:#ffffff13;border:1px solid #ffffff44;border-radius:18px;padding:10px 26px;margin:12px;box-shadow:0 8px 30px #0003}
+.scene-controls{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 3px 2px}.scene-controls button,.toolrow button{background:#ffffff17;color:#fff;border:1px solid #ffffff35;padding:9px 14px;border-radius:11px;font-weight:800;font-size:12px}.dots{display:flex;gap:6px}.dots span{width:8px;height:8px;border-radius:8px;background:#ffffff44}.dots span.on{width:23px;background:#ffe18a}
+.enter-puzzle{background:linear-gradient(110deg,#ffda7c,#ff91bd)!important;color:#30204d!important;border:0!important}
+.table-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.fact{background:linear-gradient(145deg,#17204b,#0f1635);border:1px solid #ffffff22;border-radius:15px;padding:15px;text-align:center;color:white}.fact strong{font-size:23px;color:#ffe39a;display:block}.fact span{font-size:10px;color:#bfc6eb}.fact:hover{transform:translateY(-3px);border-color:#b7a4ff}
+.challenge{background:linear-gradient(145deg,#1b2453,#101735);border:1px solid #ffffff26;border-radius:22px;padding:22px}.question{font-size:26px;font-weight:900;margin:12px 0 18px;color:#ffe6a0}.answers{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.answer{padding:14px;background:#f7f5ff;border:2px solid #d9d5f2;border-radius:13px;font-size:19px;font-weight:900;color:#29264d}.answer.correct{background:#d9ffe8;border-color:#55c78a;color:#126a3b}.answer.wrong{background:#ffe0e5;border-color:#e77b90;color:#9b2941}.feedback{min-height:35px;font-weight:800;margin-top:12px}.next{background:#7964e6;color:white;padding:10px 18px;border-radius:11px;font-weight:800;margin-top:10px}.progress{height:8px;background:#ffffff20;border-radius:20px;overflow:hidden;margin:12px 0}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#7deaff,#ffdc7c);transition:.3s}
+.certificate{background:linear-gradient(135deg,#fff8df,#fff,#f0eaff);border:8px double #caa54f;border-radius:20px;padding:32px;text-align:center;max-width:750px;margin:auto;color:#302c55}.certificate h2{font-size:30px;color:#674dbd}.certificate .seal{font-size:55px}.certificate input{border:1px solid #ded9ef;padding:10px;border-radius:10px;text-align:center;width:min(320px,100%);margin:8px}
+.toolrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}footer{text-align:center;color:#7e89b8;font-size:10px;padding:24px}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.sidebar{border-left:0;border-bottom:1px solid #ffffff18;padding:9px 12px;overflow:auto}.side-title,.side-note{display:none}.nav{display:flex;min-width:max-content}.nav button{padding:9px 10px;font-size:11px}.hero-copy{max-width:100%;padding:32px 5%}.portal{opacity:.7;left:54%;width:46%}.cards{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){main{padding:16px 12px}.top{padding:10px 12px}.brand h1{font-size:13px}.brand p{font-size:9px}.top-actions button{font-size:10px;padding:7px}.welcome h2{font-size:19px}.cinema{min-height:590px}.hero-copy{padding:27px 22px;align-self:flex-start}.hero-copy h2{font-size:37px}.hero-copy p{font-size:12px}.moon{width:75px;height:75px;left:5%;top:43%}.portal{width:72%;height:280px;bottom:0;left:50%;opacity:.85}.portal-number{font-size:90px}.ground{height:120px}.metrics,.cards{grid-template-columns:1fr}.table-grid{grid-template-columns:repeat(2,1fr)}.scene{min-height:480px;padding:20px}.scene-visual{font-size:76px}.answers{grid-template-columns:1fr}.scene-controls{flex-wrap:wrap}.dots{order:3;width:100%;justify-content:center}}
+@media print{.top,.sidebar,.welcome,.toolrow,footer{display:none!important}.layout{display:block}.panel{display:none!important}#certificatePanel{display:block!important}main{padding:0}.certificate{margin:20px auto}}
+</style>
+</head>
+<body>
+<header class="top">
+ <div class="brand"><div class="logo">٦</div><div><h1>مغامرة أبطال جدول الضرب ٦</h1><p>رحلة سينمائية في عالم الأرقام</p></div></div>
+ <div class="top-actions"><button onclick="showPanel('home')">⌂ الرئيسية</button><button onclick="window.print()">طباعة الشهادة</button></div>
+</header>
+<div class="layout">
+<aside class="sidebar">
+ <div class="side-title">خريطة المغامرة</div>
+ <nav class="nav">
+  <button class="active" data-panel="home" onclick="showPanel('home')"><span class="ico">🌌</span> بوابة المغامرة</button>
+  <button data-panel="slides" onclick="showPanel('slides')"><span class="ico">🎬</span> المشاهد السينمائية</button>
+  <button data-panel="table" onclick="showPanel('table')"><span class="ico">🔢</span> أسرار جدول ٦</button>
+  <button data-panel="game" onclick="showPanel('game')"><span class="ico">🗝️</span> غرفة الألغاز</button>
+  <button data-panel="certificate" onclick="showPanel('certificate')"><span class="ico">🏆</span> كنز الإنجاز</button>
+ </nav>
+ <div class="side-note"><b>✨ مهمتكِ البطولية</b><br>اجمعي مفاتيح المعرفة، واكتشفي سر العدد ٦، ثم افتحي صندوق الكنز بإجاباتكِ الصحيحة.</div>
+</aside>
+<main>
+ <div class="welcome"><div><h2 id="pageTitle">أهلًا بكِ أيتها البطلة!</h2><p id="pageDesc">بوابة عالم الأرقام تنتظركِ. هل أنتِ مستعدة للمغامرة؟</p></div><span class="pill">الصف الثالث الابتدائي • الرياضيات</span></div>
+
+ <section class="panel active" id="home">
+  <div class="cinema">
+   <div class="stars"></div><div class="moon"></div><div class="floating-gem g1">✦</div><div class="floating-gem g2">✨</div><div class="floating-gem g3">⭐</div>
+   <div class="portal"><div class="portal-ring"><div class="portal-inner"><div class="portal-number">٦</div></div></div></div>
+   <div class="crystal c1"></div><div class="crystal c2"></div><div class="ground"></div>
+   <div class="hero-copy"><div class="eyebrow">فيلم تفاعلي • المهمة الأولى تبدأ الآن</div><h2>سرّ البوابة<br>السحرية للعدد ٦</h2><p>في مملكة الأرقام، أُغلقت بوابة الكنز واختفت مفاتيحها! انطلقي في رحلة بين الكواكب، واجتازي المشاهد والألغاز لتعيدي النور إلى المملكة.</p><div class="cta"><button class="primary" onclick="showPanel('slides')">🎬 شاهدي بداية القصة</button><button class="secondary" onclick="enterPuzzle()">🗝️ ادخلي إلى اللغز</button></div></div>
+  </div>
+  <div class="metrics"><div class="metric"><div class="micon">🌟</div><div><strong>٦ × ١٢</strong><small>حقيقة ضرب لاكتشافها</small></div></div><div class="metric"><div class="micon">🧩</div><div><strong>١٠</strong><small>ألغاز في غرفة التحدي</small></div></div><div class="metric"><div class="micon">🏅</div><div><strong id="homeScore">٠</strong><small>نقاطكِ ومفاتيحكِ</small></div></div></div>
+  <div class="section-head"><h3>محطات الرحلة</h3><span class="muted">اختاري بوابتكِ التالية</span></div>
+  <div class="cards">
+   <div class="card"><div class="emoji">🌌</div><h3>الفيلم الافتتاحي</h3><p>شاهدي حكاية البوابة السحرية واكتشفي المهمة التي تنتظركِ.</p><button onclick="showPanel('slides')">مشاهدة المشاهد</button></div>
+   <div class="card"><div class="emoji">🔮</div><h3>مختبر العدد ٦</h3><p>اكتشفي أسرار المجموعات المتساوية ونمط جدول الضرب.</p><button onclick="showPanel('table')">فتح المختبر</button></div>
+   <div class="card"><div class="emoji">🗝️</div><h3>غرفة الألغاز</h3><p>اختبري ذكاءكِ وافتحي أقفال الكنز بإجاباتكِ.</p><button onclick="enterPuzzle()">دخول الغرفة</button></div>
+  </div>
+ </section>
+
+ <section class="panel" id="slides">
+  <div class="scene-shell"><div class="scene" id="slideCanvas"></div>
+   <div class="scene-controls"><button onclick="prevSlide()">→ المشهد السابق</button><div class="dots" id="dots"></div><span id="slideCount">١ / ٦</span><button onclick="nextSlide()">المشهد التالي ←</button></div>
+  </div>
+  <div class="toolrow"><button onclick="showPanel('table')">🔮 الانتقال إلى مختبر العدد ٦</button><button class="enter-puzzle" onclick="enterPuzzle()">🗝️ عبور البوابة إلى اللغز</button><button onclick="toggleFull()">⛶ عرض سينمائي كامل الشاشة</button></div>
+ </section>
+
+ <section class="panel" id="table">
+  <div class="section-head"><h3>🔮 مختبر أسرار جدول ضرب العدد ٦</h3><span class="muted">اضغطي على البطاقة لاكتشاف الجمع المتكرر</span></div>
+  <div class="table-grid" id="facts"></div>
+  <div class="card" style="margin-top:15px"><h3>🧠 شفرة العالِمة الصغيرة</h3><p>٦ × ٣ تعني ثلاث مجموعات متساوية، في كل مجموعة ٦ عناصر: ٦ + ٦ + ٦ = ١٨. كلما أضفنا مجموعة جديدة زاد الناتج بمقدار ٦.</p></div>
+  <div class="toolrow"><button class="enter-puzzle" onclick="enterPuzzle()">🗝️ فهمت السر! إلى غرفة الألغاز</button></div>
+ </section>
+
+ <section class="panel" id="game">
+  <div class="challenge">
+   <div class="section-head"><h3>🗝️ غرفة الألغاز: افتحي صندوق الكنز</h3><span class="pill" id="qProgress">اللغز ١ من ١٠</span></div>
+   <div class="progress"><span id="bar"></span></div>
+   <div class="muted">اختاري الشفرة الصحيحة. كل إجابة صحيحة تمنحكِ ١٠ نقاط ومفتاحًا مضيئًا.</div>
+   <div class="question" id="question">٦ × ٢ = ؟</div><div class="answers" id="answers"></div><div class="feedback" id="feedback" aria-live="polite"></div>
+   <button class="next" id="nextQ" onclick="nextQuestion()" style="display:none">اللغز التالي ←</button>
+   <div id="gameEnd" style="display:none;text-align:center;padding:20px"><div style="font-size:60px">🏆</div><h2>لقد فتحتِ صندوق الكنز!</h2><p id="finalScore"></p><button class="next" onclick="restartGame()">إعادة المغامرة</button><button class="next" onclick="showPanel('certificate')">استلام شهادة البطلة</button></div>
+  </div>
+ </section>
+
+ <section class="panel" id="certificatePanel">
+  <div class="certificate"><div class="seal">🏅</div><div style="color:#9b7931;font-weight:900">شهادة إنجاز تعليمية</div><h2>بطلة مغامرة جدول الضرب ٦</h2><p>تُمنح هذه الشهادة للطالبة المتميزة تقديرًا لاجتيازها ألغاز جدول ضرب العدد ٦، وإظهارها مهارة وتركيزًا ومثابرة.</p><input id="studentName" placeholder="اكتبي اسم الطالبة هنا" aria-label="اسم الطالبة"><p>مع تمنياتنا لكِ بمزيد من التألق والنجاح ✨</p><div style="display:flex;justify-content:space-around;gap:20px;flex-wrap:wrap;margin-top:25px;color:#65558e;font-weight:800"><span>المعلمة: نورة القحطاني</span><span>الصف: الثالث الابتدائي</span></div></div>
+  <div class="toolrow" style="justify-content:center"><button onclick="window.print()">🖨️ طباعة الشهادة / حفظ PDF</button><button onclick="showPanel('game')">العودة إلى غرفة الألغاز</button></div>
+ </section>
+ <footer>مغامرة أبطال جدول الضرب ٦ • تعلّم بالاستكشاف واللعب والخيال</footer>
+</main>
+</div>
+<script>
+const titles={home:['أهلًا بكِ أيتها البطلة!','بوابة عالم الأرقام تنتظركِ. هل أنتِ مستعدة للمغامرة؟'],slides:['المشاهد السينمائية','شاهدي القصة، ثم انتقلي إلى بوابة اللغز.'],table:['مختبر أسرار جدول ٦','اكتشفي حقائق الضرب من خلال المجموعات المتساوية.'],game:['غرفة الألغاز','افتحي الأقفال بإجاباتكِ الصحيحة واجمعي المفاتيح.'],certificate:['كنز الإنجاز','احتفلي بإتمام المهمة وحصولكِ على لقب البطلة.']};
+function showPanel(id){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.getElementById(id==='certificate'?'certificatePanel':id).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.panel===id));document.getElementById('pageTitle').textContent=titles[id][0];document.getElementById('pageDesc').textContent=titles[id][1];window.scrollTo({top:0,behavior:'smooth'});}
+const ar=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
+function enterPuzzle(){showPanel('game');document.querySelector('#game .challenge').animate([{transform:'scale(.94)',opacity:.5},{transform:'scale(1)',opacity:1}],{duration:700,easing:'ease-out'});}
+const facts=document.getElementById('facts');for(let i=1;i<=12;i++){let d=document.createElement('button');d.className='fact';d.innerHTML=`<strong>٦ × ${ar(i)} = ${ar(6*i)}</strong><span>اضغطي لاكتشاف الجمع المتكرر</span>`;d.onclick=()=>{d.querySelector('span').textContent=`${ar(Array.from({length:i},()=>6).join(' + '))} = ${ar(6*i)}`};facts.appendChild(d)}
+const slides=[
+['نداء من مملكة الأرقام','في ليلة مليئة بالنجوم، انطفأ نور مملكة الأرقام. أرسلت حارسة المملكة نداءً إلى بطلات الرياضيات لإنقاذ الكنز.','مهمتكِ: أعيدي النور إلى المملكة!','🌌'],
+['ظهور البوابة السحرية','اقتربي من البوابة المتوهجة. لن تفتح إلا لمن تكتشف سر الرقم الذهبي ٦. استعدّي لعبور عالم الأرقام.','الشفرة الأولى: العدد ٦','🌀'],
+['لغز السلال الثلاث','وجدتِ ثلاث سلال مضيئة. في كل سلة ست تفاحات. ساعدي الحارسة في معرفة عدد التفاحات كلها.','٦ + ٦ + ٦ = ١٨','🍎'],
+['قوة الضرب','اكتشفتِ أن الضرب طريقة ذكية لتمثيل المجموعات المتساوية دون تكرار الجمع الطويل.','٦ × ٣ = ١٨','✨'],
+['مفتاح النمط السري','كلما أضفنا مجموعة جديدة من ستة، قفز الناتج ست خطوات. راقبي النمط واكتشفي العدد المفقود.','٦، ١٢، ١٨، ٢٤، ٣٠، ٣٦','🔐'],
+['العبور إلى غرفة الكنز','أصبحتِ تملكين سر العدد ٦. بقيت خطوة أخيرة: اجتازي الألغاز العشرة لتفتحي صندوق الكنز.','هل أنتِ مستعدة للتحدي؟','🏆']];
+let slideIndex=0;
+function renderSlide(){let s=slides[slideIndex];document.getElementById('slideCanvas').innerHTML=`<div class="scene-content"><div class="scene-visual">${s[3]}</div><div class="scene-tag">فيلم المغامرة • المشهد ${ar(slideIndex+1)} من ${ar(slides.length)}</div><h2>${s[0]}</h2><p>${s[1]}</p><div class="equation">${s[2]}</div></div>`;document.getElementById('slideCount').textContent=`${ar(slideIndex+1)} / ${ar(slides.length)}`;document.getElementById('dots').innerHTML=slides.map((_,i)=>`<span class="${i===slideIndex?'on':''}"></span>`).join('');}
+function nextSlide(){slideIndex=(slideIndex+1)%slides.length;renderSlide()}function prevSlide(){slideIndex=(slideIndex-1+slides.length)%slides.length;renderSlide()}function toggleFull(){let el=document.querySelector('.scene-shell');if(!document.fullscreenElement)el.requestFullscreen?.();else document.exitFullscreen?.()}renderSlide();
+const questions=[[6,2,12],[6,4,24],[6,7,42],[6,5,30],[6,9,54],[6,3,18],[6,8,48],[6,10,60],[6,6,36],[6,12,72]];let q=0,score=0,answered=false;
+function renderQuestion(){answered=false;let[a,b,c]=questions[q];document.getElementById('question').textContent=`${ar(a)} × ${ar(b)} = ؟`;document.getElementById('qProgress').textContent=`اللغز ${ar(q+1)} من ${ar(questions.length)}`;document.getElementById('bar').style.width=(q/questions.length*100)+'%';document.getElementById('feedback').textContent='';document.getElementById('nextQ').style.display='none';let opts=[c,c+6,c-6,c+12].sort(()=>Math.random()-.5);document.getElementById('answers').innerHTML='';opts.forEach(v=>{let btn=document.createElement('button');btn.className='answer';btn.textContent=ar(v);btn.onclick=()=>choose(btn,v,c);document.getElementById('answers').appendChild(btn)})}
+function choose(btn,v,c){if(answered)return;answered=true;let all=[...document.querySelectorAll('.answer')];all.forEach(x=>x.disabled=true);if(v===c){btn.classList.add('correct');score+=10;document.getElementById('feedback').textContent='🌟 أحسنتِ! أُضيء مفتاح جديد وأضيفت ١٠ نقاط.'}else{btn.classList.add('wrong');all.find(x=>x.textContent===ar(c))?.classList.add('correct');document.getElementById('feedback').textContent=`اقتربتِ من الحل! تذكّري الإجابة الصحيحة: ${ar(c)}.`}document.getElementById('homeScore').textContent=ar(score);document.getElementById('nextQ').style.display='inline-block';document.getElementById('nextQ').textContent=q===questions.length-1?'فتح صندوق الكنز':'اللغز التالي ←'}
+function nextQuestion(){if(q<questions.length-1){q++;renderQuestion()}else{document.getElementById('answers').style.display='none';document.getElementById('question').style.display='none';document.getElementById('feedback').style.display='none';document.getElementById('nextQ').style.display='none';document.getElementById('bar').style.width='100%';document.getElementById('gameEnd').style.display='block';document.getElementById('finalScore').textContent=`حصلتِ على ${ar(score)} من ${ar(questions.length*10)} نقطة. ${score>=80?'أنتِ بطلة متميزة وقد فتحتِ الكنز!':'أكملتِ المغامرة! واصلي التدريب لتصبحي بطلة جدول ٦.'}`;}}
+function restartGame(){q=0;score=0;document.getElementById('homeScore').textContent='٠';document.getElementById('answers').style.display='grid';document.getElementById('question').style.display='block';document.getElementById('feedback').style.display='block';document.getElementById('gameEnd').style.display='none';renderQuestion()}renderQuestion();
+</script>
+</body>
+</html>
