@@ -87,7 +87,15 @@ main{padding:23px 3vw 45px;min-width:0}.welcome{display:flex;justify-content:spa
  </section>
 
  <section class="panel" id="slides">
-  <div class="scene-shell"><div class="scene" id="slideCanvas"></div>
+ 
+<div class="cinema-video" style="margin:12px 0 18px">
+  <video controls playsinline preload="metadata"
+    style="width:100%;aspect-ratio:16/9;object-fit:contain;background:#030716;border-radius:18px">
+    <source src="https://resource2.heygen.ai/videos/29865a140e25497baa5b95bfd6b12fb8/29865a140e25497baa5b95bfd6b12fb8/01a1e518-6805-7888-a452-ca4b2571e09f.mp4" type="video/mp4">
+  </video>
+</div>
+
+ <div class="scene-shell"><div class="scene" id="slideCanvas"></div>
    <div class="scene-controls"><button onclick="prevSlide()">→ المشهد السابق</button><div class="dots" id="dots"></div><span id="slideCount">١ / ٦</span><button onclick="nextSlide()">المشهد التالي ←</button></div>
   </div>
   <div class="toolrow"><button onclick="showPanel('table')">🔮 الانتقال إلى مختبر العدد ٦</button><button class="enter-puzzle" onclick="enterPuzzle()">🗝️ عبور البوابة إلى اللغز</button><button onclick="toggleFull()">⛶ عرض سينمائي كامل الشاشة</button></div>
@@ -120,7 +128,7 @@ main{padding:23px 3vw 45px;min-width:0}.welcome{display:flex;justify-content:spa
 </div>
 <script>
 const titles={home:['أهلًا بكِ أيتها البطلة!','بوابة عالم الأرقام تنتظركِ. هل أنتِ مستعدة للمغامرة؟'],slides:['المشاهد السينمائية','شاهدي القصة، ثم انتقلي إلى بوابة اللغز.'],table:['مختبر أسرار جدول ٦','اكتشفي حقائق الضرب من خلال المجموعات المتساوية.'],game:['غرفة الألغاز','افتحي الأقفال بإجاباتكِ الصحيحة واجمعي المفاتيح.'],certificate:['كنز الإنجاز','احتفلي بإتمام المهمة وحصولكِ على لقب البطلة.']};
-function showPanel(id){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.getElementById(id==='certificate'?'certificatePanel':id).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.panel===id));document.getElementById('pageTitle').textContent=titles[id][0];document.getElementById('pageDesc').textContent=titles[id][1];window.scrollTo({top:0,behavior:'smooth'});}
+function showPanel(id){document.querySelectorAll('.panel')<div class="section-head">
 const ar=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
 function enterPuzzle(){showPanel('game');document.querySelector('#game .challenge').animate([{transform:'scale(.94)',opacity:.5},{transform:'scale(1)',opacity:1}],{duration:700,easing:'ease-out'});}
 const facts=document.getElementById('facts');for(let i=1;i<=12;i++){let d=document.createElement('button');d.className='fact';d.innerHTML=`<strong>٦ × ${ar(i)} = ${ar(6*i)}</strong><span>اضغطي لاكتشاف الجمع المتكرر</span>`;d.onclick=()=>{d.querySelector('span').textContent=`${ar(Array.from({length:i},()=>6).join(' + '))} = ${ar(6*i)}`};facts.appendChild(d)}
